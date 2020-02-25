@@ -4,6 +4,8 @@
 
 import 'package:flutter/material.dart';
 
+import 'category.dart';
+
 // TODO: Check if we need to import anything
 
 // TODO: Define any constants
@@ -47,10 +49,31 @@ class CategoryRoute extends StatelessWidget {
     // Category. We'll add custom icons later.
 
     // TODO: Create a list view of the Categories
-    final listView = Container();
+    final listView = Container(
+      color: Colors.green[100],
+      child: ListView.builder(
+          padding: const EdgeInsets.all(8),
+          itemCount: _categoryNames.length,
+          itemBuilder: (BuildContext context, int index) {
+            return Category(
+                name: _categoryNames[index],
+                color: _baseColors[index],
+                iconLocation: Icons.cake);
+          }),
+    );
 
     // TODO: Create an App Bar
-    final appBar = AppBar();
+    final appBar = AppBar(
+        elevation: 0.0,
+        backgroundColor: Colors.green[100],
+        brightness: Brightness.light,
+        title: Padding(
+          padding: const EdgeInsets.all(0.0),
+          child: Text(
+            'Unit Converter',
+            style: TextStyle(fontSize: 30, color: Colors.black),
+          ),
+        ));
 
     return Scaffold(
       appBar: appBar,
